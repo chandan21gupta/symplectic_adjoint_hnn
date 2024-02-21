@@ -202,16 +202,16 @@ def main():
     dt = 1
     n_samples = 1000  ## number of training trajectories
     n_samples_test = 150
-    coarsening_factor=100
+    coarsening_factor=1000
     chain_length= 20
 
     ## generating the training and testing datasets for the chain experiments
-    generate_3body_datasets(dataset_index=dataset_index, T_train=T, T_test=T_test, n_samples_train=n_samples, n_samples_test=n_samples_test, dt=dt)
+    # generate_3body_datasets(dataset_index=dataset_index, T_train=T, T_test=T_test, n_samples_train=n_samples, n_samples_test=n_samples_test, dt=dt)
     
     ## generating the training and testing datasets for the 3body experiments
-    # generate_chain_datasets(dataset_index=dataset_index, T_train=T, T_test=T_test, n_samples_train=n_samples, n_samples_test=n_samples_test, \
-    #     chain_length=chain_length, dt=dt, coarsening_factor=coarsening_factor)
-    # add_noise_chain(dataset_index=dataset_index, coarsening_factor=coarsening_factor, noise_level=0.2)
+    generate_chain_datasets(dataset_index=dataset_index, T_train=T, T_test=T_test, n_samples_train=n_samples, n_samples_test=n_samples_test, \
+        chain_length=chain_length, dt=dt, coarsening_factor=coarsening_factor)
+    add_noise_chain(dataset_index=dataset_index, coarsening_factor=coarsening_factor, noise_level=0.2)
 
 
     ######## resimulate 3body

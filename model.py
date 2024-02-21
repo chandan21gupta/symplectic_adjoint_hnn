@@ -100,7 +100,7 @@ class MLP_General_Hamilt(nn.Module):
         h_B = h_pre_B.tanh_()
         return self.linear2(h_B)
 
-def leapfrog(p_0, q_0, Func, T, dt, volatile=True, is_Hamilt=True, device='cpu', use_tqdm=False):
+def leapfrog(p_0, q_0, Func, T, dt, volatile=True, is_Hamilt=True, device='cpu', use_tqdm=True):
 
     trajectories = torch.empty((T, p_0.shape[0], 2 * p_0.shape[1]), requires_grad=False).to(device)
 
@@ -172,7 +172,7 @@ def leapfrog(p_0, q_0, Func, T, dt, volatile=True, is_Hamilt=True, device='cpu',
     return trajectories
 
 
-def euler(p_0, q_0, Func, T, dt, volatile=True, is_Hamilt=True, device='cpu', use_tqdm=False):
+def euler(p_0, q_0, Func, T, dt, volatile=True, is_Hamilt=True, device='cpu', use_tqdm=True):
     trajectories = torch.empty((T, p_0.shape[0], 2 * p_0.shape[1]), requires_grad=False).to(device)
     # with torch.enable_grad():
 
